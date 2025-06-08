@@ -7,7 +7,7 @@ class QuotesTest < ApplicationSystemTestCase
   end
   test "Creating a new quote" do
     # When we visit the Quotes#index page
-    # we expect to see a title with the text "Quotes"
+    # we expect to see a title withp the text "Quotes"
     visit quotes_path
     assert_selector "h1", text: "Quotes"
 
