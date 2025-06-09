@@ -19,7 +19,7 @@ class QuotesTest < ApplicationSystemTestCase
     # When we fill in the name input with "Capybara quote"
     # and we click on "Create Quote"
     fill_in "Name", with: "Capybara quote"
-    click_on "Create quote"
+    click_on "Create Quote"
 
     # We expect to be back on the page with the title "Quotes"
     # and to see our "Capybara quote" added to the list
