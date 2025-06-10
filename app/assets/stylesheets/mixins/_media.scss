@@ -1,3 +1,4 @@
+// 共通のメディアクエリを作成する
 @mixin media($query) {
   @if $query == tabletAndUp {
     @media (min-width: 50rem) { @content; }
@@ -5,8 +6,20 @@
 
 }
 
+// mediaの引数が"tabletAndUo"の時は、min-witdh: 50remのメディアクエリを適用する
+
 .my-component {
   @include media(tabletAndUp) {
+    // タブレットサイズより大きい時のCSSを記述する
     background-color: blue;
   }
 }
+// .my-copmponentというCSSクラスに対して
+// @include media(tabletAndUp)を使用して
+// タブレットサイズ以上の画面幅に対して適用されるスタイルを記述する
+// ここでは、背景色を青に設定しています
+// このように、メディアクエリをミックスインとして定義することで
+// 再利用可能なスタイルを簡単に適用できます
+// 例えば、@include media(tabletAndUp)を使用して
+// 他のコンポーネントでも同じメディアクエリを適用することができます
+// これにより、コードの重複を避け、メンテナンス性を向上させることができます

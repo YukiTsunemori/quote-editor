@@ -1,3 +1,6 @@
+// componentsフォルダーには、よく使うCSS（例えばボタン）を部品化して、分けておいておく。
+// cssの値にはconfigフォルダーで設定した変数を使う。
+
 .btn {
   display: inline-block;
   padding: var(--space-xxs) var(--space-m);
@@ -16,6 +19,10 @@
   &:focus-within,
   &:active {
     transition: filter 250ms, color 200ms;
+
+    // これで、クラス名を与えるだけで統一されたボタンのデザインになる。
+    // チュートリアル内では.btn--primary, btn--secondary, .btn--light, btn--dark
+    // の４種類のボタンデザインを追加しました。
   }
 
   // Modifiers will go there
