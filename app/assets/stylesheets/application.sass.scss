@@ -1,3 +1,6 @@
+// これまでに設置したconfig/layouts/componentsフォルダーかになる全てのダイルをapplication.sass.scssに
+// importさせる。これにより、1つのコンパイル済みCSSファイルになる！！
+
 // Mixins
 @import "mixins/media";
 

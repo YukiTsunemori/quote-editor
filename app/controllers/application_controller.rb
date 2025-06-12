@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
-  # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
-  # allow_browser versions: :modern
+  before_action -> { sleep 0.5 }
+  # turbo driveを使用すると、プログレスバーがオフになるため手動で設定する必要がある。
+  # sleep 0.5秒でプログレスバーを表示させる。
 end
