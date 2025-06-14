@@ -21,6 +21,7 @@ gem "jbuilder"
 gem "stringio", "3.1.7"
 gem "turbo-rails", "~> 1.0"
 gem "simple_form", "~> 5.3.1"
+gem "devise"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
