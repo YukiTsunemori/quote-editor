@@ -5,4 +5,9 @@ class Quote < ApplicationRecord
   # orderedというクラスメソッド(スコープ)を定義する。
   # このメソッドが呼び出されると、order(id: :desc)というActive Recordクエリが実行され、
   # DBから取得されるレコードがIDの降順にソートされる！
+
+  after_create_commit -> { broadcast_prepend_to "quotes", partial: "quotes/quote", locals: { quote: self }, target: "quotes" }
+  # broadcast_prepend_toメソッドの役割.
+  # HTMLの生成 -> 指定されたパーシャル_quote.html.erbを使ってHTMLを生成する。
+  # target -> "quotes"というIDを持つ要素に対して、生成されたHTMLを追加する。
 end
