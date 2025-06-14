@@ -1,6 +1,6 @@
-accountant:
+accouaccountant@kpmg.comntant:
   company: kpmg
-  email: accountant@kpmg.com
+  email: 
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
 
 manager:
