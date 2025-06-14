@@ -18,4 +18,5 @@ class Quote < ApplicationRecord
   broadcasts_to ->(quote) { "quotes" }, inserts_by: :prepend
   # railsはこのメソッド1行で、上に書いた3行のコードを実行する。
   # broadcasts_toメソッドは、RailsのAction Cableを使用して、リアルタイムでの更新を可能にする。
+  belongs_to :company
 end
