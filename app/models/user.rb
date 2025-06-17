@@ -8,4 +8,8 @@ class User < ApplicationRecord
   belongs_to :company
   # belongs_to :companyは、UserモデルがCompanyモデルに属していることを示す。
   # つまり、Userは1つのCompanyに関連付けられている。
+
+  def name
+    email.split("@").first.capitalize
+  end
 end

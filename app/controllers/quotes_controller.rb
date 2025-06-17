@@ -2,7 +2,7 @@ class QuotesController < ApplicationController
   before_action :set_quote, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @quotes = Quote.ordered
+    @quotes = current_company.quotes.ordered
     # orderedスコープを使用して、Quoteモデルから取得したレコードをIDの降順にソートする。
   end
 
@@ -14,7 +14,9 @@ class QuotesController < ApplicationController
   end
 
   def create
-    @quote = Quote.new(quote_params)
+    @quote = current_company.quotes.build(quote_params)
+    # binding.irb
+  # @quote = Quote.new(quote_params)
     if @quote.save
       respond_to do |format|
         format.html { redirect_to quotes_path, notice: "Quote was successfully created." }
@@ -47,10 +49,12 @@ class QuotesController < ApplicationController
 
   private
     def set_quote
-      @quote = Quote.find(params[:id])
+      @quote = current_company.quotes.find(params[:id])
+      # セキュリティ上の理由から、Quoteの代わりにcurrent_company.quotesを使用する必要がある
     end
 
     def quote_params
       params.require(:quote).permit(:name)
+      # binding.irb
     end
 end
