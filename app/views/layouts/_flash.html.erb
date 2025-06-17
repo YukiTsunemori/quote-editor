@@ -1,5 +1,5 @@
-<%= flash.each do |flash_type, message| %>
-    <div class="flash__message">
-        <%= message %>
-    </div>
+<% flash.each do |flash_type, message| %>
+  <div class="flash__message flash__message--<%= flash_type %>"> // ★ここが追加
+    <%= message %>
+  </div>
 <% end %>
