@@ -15,11 +15,11 @@ class QuotesController < ApplicationController
 
   def create
     @quote = current_company.quotes.build(quote_params)
-    # binding.irb
-  # @quote = Quote.new(quote_params)
     if @quote.save
       respond_to do |format|
+        # binding.irb
         format.html { redirect_to quotes_path, notice: "Quote was successfully created." }
+        # binding.irb
         format.turbo_stream
       end
     else
