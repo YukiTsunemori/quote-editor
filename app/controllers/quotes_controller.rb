@@ -18,9 +18,9 @@ class QuotesController < ApplicationController
     if @quote.save
       respond_to do |format|
         # binding.irb
-        format.html { redirect_to quotes_path, notice: "Quote was successfully created." }
+        format.html { redirect_to quotes_path} #, notice: "Quote was successfully created." } # formがdata: { turbo: false }の時要求される
         # binding.irb
-        format.turbo_stream { flash.now[:notice] = "Quote was successfully created." } # ← ここに追加
+        format.turbo_stream { flash.now[:notice] = "Quote was successfully created." } # formがdata: { turbo: true }の時要求される
       end
     else
       render :new, status: :unprocessable_entity
