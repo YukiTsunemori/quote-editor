@@ -4,5 +4,5 @@
   
   <%= f.input :date, html5: true, input_html: { autofocus: true } %>
   <%= link_to "Cancel", quote_path(quote), class: "btn btn--light" %>
-  <%= f.submit class: "btn btn--secondary" %>
+  <%= f.submit class: "btn btn--secondary", data: { turbo: true } %>
 <% end %>

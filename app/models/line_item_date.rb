@@ -7,4 +7,8 @@ class LineItemDate < ApplicationRecord
   # このscopeはquote_idが同じ日付を複数持つことを許さないと言う意味である。
 
   scope :ordered, -> { order(date: :asc) }
+
+  def previous_date
+    quote.line_item_dates.ordered.where("date < ?", date).last
+  end
 end
