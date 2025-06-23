@@ -3,7 +3,7 @@ class LineItemDate < ApplicationRecord
   belongs_to :quote
 
   # 日付が必須であることと、見積もり内で日付が重複しないことを設定する
-  validates :date, prpesence: true, uniqueness: { scope: :quote_id }
+  validates :date, presence: true, uniqueness: { scope: :quote_id }
   # このscopeはquote_idが同じ日付を複数持つことを許さないと言う意味である。
 
   scope :ordered, -> { order(date: :asc) }
