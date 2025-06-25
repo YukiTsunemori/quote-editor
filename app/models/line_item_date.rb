@@ -1,4 +1,5 @@
 class LineItemDate < ApplicationRecord
+  has_many :line_items, dependent: :destroy
   # このLineItemDateがどの見積もりに属するかを定義
   belongs_to :quote
 

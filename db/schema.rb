@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_23_100200) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_25_035323) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -26,6 +26,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_23_100200) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "lin_items", force: :cascade do |t|
+    t.bigint "line_item_date_id", null: false
+    t.string "name", null: false
+    t.text "description"
+    t.integer "quantity", null: false
+    t.decimal "unit_price", precision: 10, scale: 2, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["line_item_date_id"], name: "index_lin_items_on_line_item_date_id"
+  end
+
   create_table "line_item_dates", force: :cascade do |t|
     t.bigint "quote_id", null: false
     t.date "date", null: false
@@ -34,6 +45,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_23_100200) do
     t.index ["date", "quote_id"], name: "index_line_item_dates_on_date_and_quote_id", unique: true
     t.index ["date"], name: "index_line_item_dates_on_date"
     t.index ["quote_id"], name: "index_line_item_dates_on_quote_id"
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.bigint "line_item_date_id", null: false
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "quantity", null: false
+    t.decimal "unit_price", precision: 10, scale: 2, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["line_item_date_id"], name: "index_line_items_on_line_item_date_id"
   end
 
   create_table "quotes", force: :cascade do |t|
@@ -58,7 +80,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_23_100200) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "lin_items", "line_item_dates"
   add_foreign_key "line_item_dates", "quotes"
+  add_foreign_key "line_items", "line_item_dates"
   add_foreign_key "quotes", "companies"
   add_foreign_key "users", "companies"
 end
