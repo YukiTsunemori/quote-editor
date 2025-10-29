@@ -19,7 +19,7 @@ gem "cssbundling-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 gem "stringio", "3.1.7"
-gem "turbo-rails", "~> 1.0"
+gem "turbo-rails", "~> 2.0"
 gem "simple_form", "~> 5.3.1"
 gem "devise"
 
